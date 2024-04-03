@@ -1,0 +1,32 @@
+<h3 class="mat-headline-4" id="Contact" i18n>Contact</h3>
+<form class="contact-form" id="contactForm" #f="ngForm" [formGroup]="contactForm" (ngSubmit)="onSubmit(this.contactForm, f)">
+  <div class="name-container">
+    <mat-form-field appearance="outline">
+      <mat-label i18n>Name</mat-label>
+      <input required matInput formControlName="name">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label i18n>Surname</mat-label>
+      <input required matInput formControlName="surname">
+    </mat-form-field>
+  </div>
+
+  <mat-form-field appearance="outline">
+    <mat-label i18n>Subject</mat-label>
+    <input required matInput formControlName="subject">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label i18n>Body</mat-label>
+    <textarea required matInput formControlName="body"></textarea>
+  </mat-form-field>
+
+  <div class="submit-container">
+    <button type="submit" form="contactForm" mat-flat-button color="primary" [disabled]="isAwaitingResponse || !this.contactForm.valid" i18n>Send!</button>
+  @if(isAwaitingResponse){
+    <mat-spinner class="submit-spinner" [diameter]=30></mat-spinner>
+  }
+  </div>
+
+</form>

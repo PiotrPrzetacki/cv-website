@@ -1,0 +1,41 @@
+mat-sidenav-container {
+  height: calc(100% - var(--mat-toolbar-standard-height));
+}
+
+mat-sidenav {
+  width: 240px;
+}
+
+mat-sidenav-content {
+  scroll-behavior: smooth;
+}
+
+app-header {
+  height: calc(100vh - var(--mat-toolbar-standard-height));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+app-about-me {
+  display: block;
+}
+main {
+  max-width: min(100%, 940px);
+  margin: auto;
+  padding: 0 24px;
+}
+
+main > * {
+  margin-bottom: 200px;
+  display: block;
+}
+
+p {
+  font-size: 16px;
+}
+mat-nav-list > h1 {
+  margin: 10px;
+}
+.spacer {
+  flex: 1 1 auto;
+}

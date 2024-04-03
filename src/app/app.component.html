@@ -1,0 +1,41 @@
+<mat-toolbar color="primary">
+  <span i18n>My Portfolio</span>
+  <span class="spacer"></span>
+  @if(!isInDevMode){
+    <button mat-icon-button [matMenuTriggerFor]="menu">
+      <mat-icon>translate</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <a mat-menu-item href="/en" i18n>English</a>
+      <a mat-menu-item href="/pl" i18n>Polish</a>
+    </mat-menu>
+  }
+  @else {
+    <button mat-icon-button [matTooltip]="translationErrorText" (click)="openTranslationInfo()">
+      <mat-icon>translate</mat-icon>
+    </button>
+  }
+
+</mat-toolbar>
+
+<mat-sidenav-container>
+  <mat-sidenav opened mode="side">
+    <mat-nav-list>
+      <h1 class="mat-subtitle-2" i18n>Navigation</h1>
+      <a mat-list-item href="#About-me" i18n>About</a>
+      <a mat-list-item href="#My-experience" i18n>Experience</a>
+      <a mat-list-item href="#Contact" i18n>Contact</a>
+    </mat-nav-list>
+
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <app-header />
+    <main>
+      <app-about-me />
+      <app-my-experience />
+      <app-contact />
+    </main>
+    <app-footer />
+  </mat-sidenav-content>
+</mat-sidenav-container>
+<router-outlet />
